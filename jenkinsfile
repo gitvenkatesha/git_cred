@@ -1,0 +1,18 @@
+pipeline {
+    agent any 
+
+   
+    stages {
+        stage('check out') {
+            steps {
+              
+               checkout([$class: 'GitSCM',
+    branches: [[name: 'main']],
+    userRemoteConfigs: [[url: 'https://github.com/jaintpharsha/maven.git']]])
+
+              
+
+            }
+        }
+    }
+}
